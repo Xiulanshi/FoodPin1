@@ -16,6 +16,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        // modify the background color of navigation bar
+        UINavigationBar.appearance().barTintColor = UIColor(red: 242.0/255.0, green:
+            116.0/255.0, blue: 119.0/255.0, alpha: 1.0)
+        
+        // the tintColor controls the color of the navigation items and bar button items, such as the back button
+        UINavigationBar.appearance().tintColor = UIColor.whiteColor()
+        
+        // the title style can be changed by setting the titleTextAttributes properties
+        if let barFont = UIFont(name: "Avenir-Light", size: 24.0) {
+            UINavigationBar.appearance().titleTextAttributes =
+            [NSForegroundColorAttributeName:UIColor.whiteColor(),
+            NSFontAttributeName:barFont]
+        }
+        
+        // Change the status bar's appearance
+        UIApplication.sharedApplication().statusBarStyle = .LightContent
+        
         return true
     }
 
