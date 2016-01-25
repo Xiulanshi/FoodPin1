@@ -19,6 +19,7 @@ class RestaurantTableViewController: UITableViewController {
     
     var restaurantTypes = ["Coffee & Tea Shop", "Cafe", "Tea House", "Austrian / Causual Drink", "French", "Bakery", "Bakery", "Chocolate", "Cafe", "American / Seafood", "American", "American", "Breakfast & Brunch", "Coffee & Tea", "Coffee & Tea", "Latin American", "Spanish", "Spanish", "Spanish", "British", "Thai"]
         
+    var restaurantIsVisited = [Bool] (count: 21, repeatedValue: false)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,7 +61,15 @@ class RestaurantTableViewController: UITableViewController {
 //        cell.thumbnailImageView.layer.cornerRadius = 30.0
 //        cell.thumbnailImageView.clipsToBounds = true    //these two lines of code can make circular image ---method 2 via interface builder
         cell.thumbnailImageView.image = UIImage(named: restaurantImages[indexPath.row])
-    
+        
+//        if restaurantIsVisited[indexPath.row]{
+//            cell.accessoryType = .Checkmark
+//        } else {
+//            cell.accessoryType = .None
+//        }
+        //Use ternary conditional operator (?:). It's an efficiant shorthand for evaluating simple condition
+        
+        cell.accessoryType = restaurantIsVisited[indexPath.row] ? .Checkmark : .None
 
         return cell
     }
@@ -70,6 +79,11 @@ class RestaurantTableViewController: UITableViewController {
         // Create an option menu as an action sheet
         let optionMenu = UIAlertController(title: nil, message: "What do you want to do?", preferredStyle: .ActionSheet)
         
+        // Add actions to the menu
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+        optionMenu.addAction(cancelAction)
+
+        
         let callActionHandler = {(action:UIAlertAction!) -> Void in
             let alertMessage = UIAlertController(title: "Service unavailable", message: "Sorry, the call feature is not available yet. Please retry later.", preferredStyle: .Alert)
             alertMessage.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
@@ -78,16 +92,34 @@ class RestaurantTableViewController: UITableViewController {
     
         let callAction = UIAlertAction(title: "Call " + "123-000-\(indexPath.row)", style: .Default, handler: callActionHandler)
         optionMenu.addAction(callAction)
-
-}
+        
+        
+//        let isVisitedAction = UIAlertAction(title: "I've been here", style: .Default, handler: {
+//            (action:UIAlertAction!) -> Void in
+//            
+//            let cell = tableView.cellForRowAtIndexPath(indexPath)
+//            cell?.accessoryType = .Checkmark
+//            self.restaurantIsVisited[indexPath.row] = true
+//        })
+//        
+//        optionMenu.addAction(isVisitedAction)
+        
+        let isVisitedTitle = (restaurantIsVisited[indexPath.row]) ? "I've not been here" : "I've been here"
+        let isVisitedAction = UIAlertAction(title: isVisitedTitle, style: .Default, handler: {
+        (action:UIAlertAction!) -> Void in
+        
+        let cell = tableView.cellForRowAtIndexPath(indexPath)
+        self.restaurantIsVisited[indexPath.row] = (self.restaurantIsVisited[indexPath.row]) ? false : true
+        cell?.accessoryType = (self.restaurantIsVisited[indexPath.row]) ? .Checkmark : .None
+        })
+        optionMenu.addAction(isVisitedAction)
     
-//    // Add actions to the menu
-//    let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
-//    optionMenu.addAction(cancelAction)
-//    
-//    // Display the menu
-//    self.presentViewController(optionMenu, animated: true, completion: nil)
-//}
+
+    // Display the menu
+    self.presentViewController(optionMenu, animated: true, completion: nil)
+        
+    tableView.deselectRowAtIndexPath(indexPath, animated: false)
+}
 
     /*
     // Override to support conditional editing of the table view.
