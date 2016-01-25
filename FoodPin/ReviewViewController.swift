@@ -12,6 +12,9 @@ class ReviewViewController: UIViewController {
     
     @IBOutlet var backgroundImageView : UIImageView!
     @IBOutlet var ratingStackView: UIStackView!
+    @IBOutlet var dislikeButton: UIButton!
+    @IBOutlet var goodButton: UIButton!
+    @IBOutlet var greatButton: UIButton!
     
     var rating: String?
 
@@ -21,16 +24,21 @@ class ReviewViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         // scale down stack view when first loaded
-       // ratingStackView.transform = CGAffineTransformMakeScale(0.0, 0.0)
+//        ratingStackView.transform = CGAffineTransformMakeScale(0.0, 0.0)
         
         // Slide-up animation-- move stack view off (bottom)
-        //ratingStackView.transform = CGAffineTransformMakeTranslation(0, 500)
+//        ratingStackView.transform = CGAffineTransformMakeTranslation(0, 500)
         
         // Combine two transforms
+//        let scale = CGAffineTransformMakeScale(0.0, 0.0)
+//        let translate = CGAffineTransformMakeTranslation(0, 500)
+//        ratingStackView.transform = CGAffineTransformConcat(scale, translate)
         
-        let scale = CGAffineTransformMakeScale(0.0, 0.0)
+        // animate each button
         let translate = CGAffineTransformMakeTranslation(0, 500)
-        ratingStackView.transform = CGAffineTransformConcat(scale, translate)
+        dislikeButton.transform = translate
+        goodButton.transform = translate
+        greatButton.transform = translate
         
         // To apply a blurring effect to the background image view, all you need to do is create a UIVisualEffectView object with the blurring effect, followed by adding the visual effect view to the background image view.
         let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.Dark)
@@ -43,11 +51,24 @@ class ReviewViewController: UIViewController {
     // want to load the animation after the view is loaded
     override func viewDidAppear(animated: Bool) {
         // create growing effect
-//        UIView.animateWithDuration(0.4, delay: 0.0, options: [], animations: { self.ratingStackView.transform = CGAffineTransformIdentity }, completion: nil)
+//        UIView.animateWithDuration(0.7, delay: 0.0, options: [], animations: { self.ratingStackView.transform = CGAffineTransformIdentity }, completion: nil)
         
         // Spring animation
-        UIView.animateWithDuration(0.5, delay: 0.0, usingSpringWithDamping: 0.3, initialSpringVelocity: 0.5, options:[], animations: {
-            self.ratingStackView.transform = CGAffineTransformIdentity }, completion: nil)
+//        UIView.animateWithDuration(0.5, delay: 0.0, usingSpringWithDamping: 0.3, initialSpringVelocity: 0.5, options:[], animations: {
+//            self.ratingStackView.transform = CGAffineTransformIdentity }, completion: nil)
+        
+        // Spring animation for each button
+        UIView.animateWithDuration(0.5, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.5, options: [], animations: {
+            self.dislikeButton.transform = CGAffineTransformIdentity
+            }, completion: nil)
+        
+        UIView.animateWithDuration(0.5, delay: 0.2, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.5, options: [], animations: {
+            self.goodButton.transform = CGAffineTransformIdentity
+            }, completion: nil)
+        
+        UIView.animateWithDuration(0.5, delay: 0.4, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.5, options: [], animations: {
+            self.greatButton.transform = CGAffineTransformIdentity
+            }, completion: nil)
 
     }
 
