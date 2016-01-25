@@ -92,6 +92,9 @@ class RestaurantDetailViewController: UIViewController, UITableViewDataSource, U
         return cell
     }
     
+    @IBAction func close(segue:UIStoryboardSegue) {
+        
+    }
 
     /*
     // MARK: - Navigation
