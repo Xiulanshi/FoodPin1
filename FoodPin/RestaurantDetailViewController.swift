@@ -21,6 +21,7 @@ class RestaurantDetailViewController: UIViewController, UITableViewDataSource, U
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        restaurantImageView.image = UIImage(named: restaurant.image)
         
         tableView.backgroundColor = UIColor(red: 240.0/255.0, green: 240.0/255.0, blue: 240.0/255.0, alpha: 0.2)
         
@@ -36,12 +37,15 @@ class RestaurantDetailViewController: UIViewController, UITableViewDataSource, U
         
         
         //the first line of code sets the estimated row height of the cell. That's the height of the existing prototype cell. The second line changes the rowHeight property to UITableViewAutomaticDimension , which is the default row height in iOS 9.
-        
+        // Enable self sizing cells
         tableView.estimatedRowHeight = 36.0
         tableView.rowHeight = UITableViewAutomaticDimension
         
-        restaurantImageView.image = UIImage(named: restaurant.image)
-
+        // Set the rating of the restaurant
+        
+        if restaurant.rating != "" {
+            ratingButton.setImage(UIImage(named: restaurant.rating), forState: UIControlState.Normal)
+        }
         
     }
     
@@ -97,6 +101,7 @@ class RestaurantDetailViewController: UIViewController, UITableViewDataSource, U
         
         if let reviewViewController = segue.sourceViewController as? ReviewViewController {
             if let rating = reviewViewController.rating {
+                restaurant.rating = rating  //this store the rating
                 ratingButton.setImage(UIImage(named: rating), forState: UIControlState.Normal)
             }
         }
