@@ -188,6 +188,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="ratingButton" destination="ZQU-Ho-oBq" id="Ndf-al-mwb"/>
                         <outlet property="restaurantImageView" destination="qdv-L5-LPr" id="sZ0-fL-V68"/>
                         <outlet property="tableView" destination="Nxo-Ka-Y2m" id="N4k-5d-K2f"/>
                     </connections>
@@ -223,7 +224,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="XRH-BP-2Sn">
                                 <rect key="frame" x="185" y="181" width="230" height="70"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q4A-Bw-yEH">
+                                    <button opaque="NO" tag="100" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q4A-Bw-yEH">
                                         <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
                                         <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
@@ -237,8 +238,11 @@
                                                 <integer key="value" value="35"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="ratingSelected:" destination="bLV-po-acA" eventType="touchUpInside" id="RRP-49-BV1"/>
+                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lTK-mi-ebl">
+                                    <button opaque="NO" tag="200" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lTK-mi-ebl">
                                         <rect key="frame" x="80" y="0.0" width="70" height="70"/>
                                         <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
@@ -252,8 +256,11 @@
                                                 <integer key="value" value="35"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="ratingSelected:" destination="bLV-po-acA" eventType="touchUpInside" id="Ufd-lX-8L1"/>
+                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IER-me-i21">
+                                    <button opaque="NO" tag="300" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IER-me-i21">
                                         <rect key="frame" x="160" y="0.0" width="70" height="70"/>
                                         <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
@@ -267,6 +274,9 @@
                                                 <integer key="value" value="35"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="ratingSelected:" destination="bLV-po-acA" eventType="touchUpInside" id="IQy-Nw-fWZ"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <userDefinedRuntimeAttributes>
@@ -284,7 +294,7 @@
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" image="close"/>
                                 <connections>
-                                    <segue destination="SNz-oR-h4L" kind="unwind" unwindAction="close:" id="qtE-Zm-TSB"/>
+                                    <segue destination="SNz-oR-h4L" kind="unwind" identifier="unwindToDetailView" unwindAction="close:" id="qtE-Zm-TSB"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -304,6 +314,7 @@
                     </view>
                     <connections>
                         <outlet property="backgroundImageView" destination="AL0-tx-ix7" id="l52-7T-sVt"/>
+                        <outlet property="ratingStackView" destination="XRH-BP-2Sn" id="PiP-hP-mn0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rGL-dT-Ic7" userLabel="First Responder" sceneMemberID="firstResponder"/>

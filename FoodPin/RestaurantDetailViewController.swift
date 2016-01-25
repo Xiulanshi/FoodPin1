@@ -12,6 +12,7 @@ class RestaurantDetailViewController: UIViewController, UITableViewDataSource, U
     
     @IBOutlet var tableView: UITableView!
     @IBOutlet var restaurantImageView: UIImageView!
+    @IBOutlet var ratingButton: UIButton!
 
     
     var restaurant:Restaurant!
@@ -93,6 +94,12 @@ class RestaurantDetailViewController: UIViewController, UITableViewDataSource, U
     }
     
     @IBAction func close(segue:UIStoryboardSegue) {
+        
+        if let reviewViewController = segue.sourceViewController as? ReviewViewController {
+            if let rating = reviewViewController.rating {
+                ratingButton.setImage(UIImage(named: rating), forState: UIControlState.Normal)
+            }
+        }
         
     }
 
