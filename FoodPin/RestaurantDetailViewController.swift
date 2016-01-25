@@ -31,7 +31,13 @@ class RestaurantDetailViewController: UIViewController, UITableViewDataSource, U
             240.0/255.0, alpha: 0.8)
         
         // set navigation bar title to restaurant name
-        title = restaurant.name 
+        title = restaurant.name
+        
+        
+        //the first line of code sets the estimated row height of the cell. That's the height of the existing prototype cell. The second line changes the rowHeight property to UITableViewAutomaticDimension , which is the default row height in iOS 9.
+        
+        tableView.estimatedRowHeight = 36.0
+        tableView.rowHeight = UITableViewAutomaticDimension
         
         restaurantImageView.image = UIImage(named: restaurant.image)
 
