@@ -100,7 +100,7 @@
         <!--New Restaurant-->
         <scene sceneID="DxI-Sw-vt0">
             <objects>
-                <tableViewController id="mOk-IQ-H5f" sceneMemberID="viewController">
+                <tableViewController id="mOk-IQ-H5f" customClass="AddRestaurantController" customModule="FoodPin" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="C7h-bz-0We">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -115,18 +115,16 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="249"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bNN-zE-Scc">
-                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="249"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photoalbum" translatesAutoresizingMaskIntoConstraints="NO" id="bNN-zE-Scc">
+                                                    <rect key="frame" x="258" y="83" width="84" height="84"/>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="bNN-zE-Scc" secondAttribute="bottom" id="7tp-LO-Tkc"/>
-                                                <constraint firstItem="bNN-zE-Scc" firstAttribute="top" secondItem="wO2-tC-Zk2" secondAttribute="top" id="Lap-PS-jIG"/>
-                                                <constraint firstAttribute="trailing" secondItem="bNN-zE-Scc" secondAttribute="trailing" id="NP7-RG-VOw"/>
-                                                <constraint firstItem="bNN-zE-Scc" firstAttribute="leading" secondItem="wO2-tC-Zk2" secondAttribute="leading" id="sMt-kV-BkA"/>
+                                                <constraint firstItem="bNN-zE-Scc" firstAttribute="centerX" secondItem="wO2-tC-Zk2" secondAttribute="centerX" id="MfV-U2-XSE"/>
+                                                <constraint firstItem="bNN-zE-Scc" firstAttribute="centerY" secondItem="wO2-tC-Zk2" secondAttribute="centerY" id="XXG-9F-si2"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="72" id="eyI-KF-EUJ">
                                         <rect key="frame" x="0.0" y="314" width="600" height="72"/>
@@ -235,6 +233,9 @@
                                                     <state key="normal" title="YES">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="toggleBeenHereButton:" destination="mOk-IQ-H5f" eventType="touchUpInside" id="ENe-3g-1bI"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jFQ-Ym-84v">
                                                     <rect key="frame" x="45" y="33" width="30" height="30"/>
@@ -242,6 +243,9 @@
                                                     <state key="normal" title="NO">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="toggleBeenHereButton:" destination="mOk-IQ-H5f" eventType="touchUpInside" id="5Gi-tM-SEV"/>
+                                                    </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HAVE YOU BEEN HERE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hvz-55-GlW">
                                                     <rect key="frame" x="7" y="13" width="179" height="21"/>
@@ -275,12 +279,26 @@
                                 <segue destination="wOc-FP-LTk" kind="unwind" unwindAction="unwindToHomeScreen:" id="tXH-pJ-jxc"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="4PV-dK-aZ6">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="save:" destination="mOk-IQ-H5f" id="egc-KE-O2o"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="imageView" destination="bNN-zE-Scc" id="eRK-F3-kRV"/>
+                        <outlet property="locationTextField" destination="NJV-XV-p9D" id="q4B-cH-5pn"/>
+                        <outlet property="nameTextField" destination="7Jq-Da-PD9" id="NjX-9u-jCO"/>
+                        <outlet property="noButton" destination="jFQ-Ym-84v" id="N1b-XO-g6w"/>
+                        <outlet property="typeTextField" destination="3pU-jr-bGE" id="Fab-kD-9JM"/>
+                        <outlet property="yesButton" destination="HPQ-nX-07T" id="ljO-1W-RDa"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qGK-md-5YP" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="wOc-FP-LTk" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1634" y="-398"/>
+            <point key="canvasLocation" x="1622" y="-404"/>
         </scene>
         <!--Restaurant Detail View Controller-->
         <scene sceneID="x1x-oq-X1U">
@@ -612,6 +630,7 @@
         <image name="good" width="256" height="256"/>
         <image name="great" width="256" height="256"/>
         <image name="map" width="48" height="48"/>
+        <image name="photoalbum" width="84" height="84"/>
         <image name="rating" width="256" height="256"/>
     </resources>
 </document>
