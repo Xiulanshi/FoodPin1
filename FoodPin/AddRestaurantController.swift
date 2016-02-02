@@ -15,6 +15,7 @@ class AddRestaurantController: UITableViewController, UIImagePickerControllerDel
     @IBOutlet var nameTextField: UITextField!
     @IBOutlet var typeTextField: UITextField!
     @IBOutlet var locationTextField: UITextField!
+    @IBOutlet var phoneNumberTextField: UITextField!
     @IBOutlet var yesButton: UIButton!
     @IBOutlet var noButton: UIButton!
     
@@ -81,6 +82,7 @@ class AddRestaurantController: UITableViewController, UIImagePickerControllerDel
         let name = nameTextField.text
         let type = typeTextField.text
         let location = locationTextField.text
+        let phoneNumber = phoneNumberTextField.text
         
         //Validate the input
         if name == "" || type == "" || location == "" {
@@ -101,6 +103,7 @@ class AddRestaurantController: UITableViewController, UIImagePickerControllerDel
             restaurant.name = name!
             restaurant.type = type!
             restaurant.location = location!
+            restaurant.phoneNumber = phoneNumber!
             if let restaurantImage = imageView.image {
                 restaurant.image = UIImagePNGRepresentation(restaurantImage)
             }
@@ -120,6 +123,7 @@ class AddRestaurantController: UITableViewController, UIImagePickerControllerDel
         print("Name: \(name)")
         print("Type: \(type)")
         print("Location: \(location)")
+        print("PhoneNumebr: \(phoneNumber)")
         print("Have you been here: \(isVisited)")
         
         // Dismiss the view controller
