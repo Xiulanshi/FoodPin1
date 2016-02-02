@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import CoreData
 
-class RestaurantTableViewController: UITableViewController {
+class RestaurantTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
     
+    var fetchResultsController: NSFetchedResultsController!
     
     @IBAction func unwindToHomeScreen(segue: UIStoryboardSegue) {
         
@@ -55,6 +57,30 @@ class RestaurantTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        //create NSFetchRequest object with the Restaurant entity
+        let fetchRequest = NSFetchRequest(entityName: "Restaurant")
+        
+        // specify the sort order using NSSortDescriptor object, it descripted how the fetched objects are sorted
+        let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        
+        if let managedObjectContext = (UIApplication.sharedApplication().delegate as? AppDelegate)?.managedObjectContext {
+            
+            //creat fetch request, initialize a fetched result controller
+            fetchResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
+            
+            // specify its delegate for monitoring data changes
+            fetchResultsController.delegate = self
+            
+            do { // call performFetch to execute the fetch request
+                try fetchResultsController.performFetch()
+                //get the restaurant object by access the fetchedObjects property, the property returns an array of anyobject, so we have to cast it to [Restaurant]
+                restaurants = fetchResultsController.fetchedObjects as! [Restaurant]
+            } catch {
+                print(error)
+            }
+        }
     }
     
     override func viewWillAppear(animated: Bool) {
