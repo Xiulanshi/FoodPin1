@@ -15,7 +15,8 @@ class RestaurantTableViewController: UITableViewController {
         
     }
     
-    var restaurants:[Restaurant] = [
+    var restaurants:[Restaurant] = []
+    /*
         Restaurant(name: "Cafe Deadend", type: "Coffee & Tea Shop", location: "G/F, 72 Po Hing Fong, Sheung Wan, Hong Kong", phoneNumber: "232-923423", image: "cafedeadend.jpg", isVisited: false),
         Restaurant(name: "Homei", type: "Cafe", location: "Shop B, G/F, 22-24A Tai Ping San Street SOHO, Sheung Wan, Hong Kong", phoneNumber: "348-233423", image: "homei.jpg", isVisited: false),
         Restaurant(name: "Teakha", type: "Tea House", location: "Shop B, 18 Tai Ping Shan Road SOHO, Sheung Wan, Hong Kong", phoneNumber: "354-243523", image: "teakha.jpg", isVisited: false),
@@ -37,7 +38,7 @@ class RestaurantTableViewController: UITableViewController {
         Restaurant(name: "Donostia", type: "Spanish", location: "10 Seymour Place London W1H 7ND United Kingdom", phoneNumber: "722-232323", image: "donostia.jpg", isVisited: false),
         Restaurant(name: "Royal Oak", type: "British", location: "2 Regency Street London SW1P 4BZ United Kingdom", phoneNumber: "343-988834", image: "royaloak.jpg", isVisited: false),
         Restaurant(name: "Thai Cafe", type: "Thai", location: "22 Charlwood Street London SW1V 2DY Pimlico", phoneNumber: "432-344050", image: "thaicafe.jpg", isVisited: false)
-    ]
+    */
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -88,10 +89,11 @@ class RestaurantTableViewController: UITableViewController {
         cell.nameLabel.text = restaurants[indexPath.row].name
         cell.locationLabel.text = restaurants[indexPath.row].location
         cell.typeLabel.text = restaurants[indexPath.row].type
-        cell.thumbnailImageView.image = UIImage(named: restaurants[indexPath.row].image)
+        cell.thumbnailImageView.image = UIImage(data: restaurants[indexPath.row].image!)
         
-        cell.accessoryType = restaurants[indexPath.row].isVisited ? .Checkmark : .None
-
+        if let isVisited = restaurants[indexPath.row].isVisited?.boolValue {
+        cell.accessoryType = isVisited ? .Checkmark : .None
+        }
         return cell
     }
     
@@ -170,7 +172,7 @@ class RestaurantTableViewController: UITableViewController {
         let shareAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Share", handler: { (action, indexPath) -> Void in
             
             let defaultText = "Just checking in at " + self.restaurants[indexPath.row].name
-            if let imageToShare = UIImage(named: self.restaurants[indexPath.row].image) {
+            if let imageToShare = UIImage(data: self.restaurants[indexPath.row].image!) {
                 let activityController = UIActivityViewController(activityItems: [defaultText, imageToShare], applicationActivities: nil)
                 self.presentViewController(activityController, animated: true, completion: nil)
             }
