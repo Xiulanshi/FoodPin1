@@ -256,6 +256,32 @@ class RestaurantTableViewController: UITableViewController, NSFetchedResultsCont
         
         }
     }
+    
+    // this method is called when the fetched results controller is about to start processing the content change
+    func controllerWillChangeContent(controller: NSFetchedResultsController) {
+        tableView.beginUpdates()
+    }
+    // when there is any content change inthe managed context, the second method is called.
+    func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
+        // determin the type of operation and proceed with the corresponding operation
+        switch type {
+        case .Insert:
+            if let _newIndexPath = newIndexPath {
+                tableView.insertRowsAtIndexPaths([_newIndexPath], withRowAnimation: .Fade)
+            }
+        case .Update:
+            if let _indexPath = indexPath {
+                tableView.reloadRowsAtIndexPaths([_indexPath], withRowAnimation: .Fade)
+            }
+        default:
+            tableView.reloadData()
+        }
+        // because the objects are changed, we sync them with the restaurant array at the end of the method
+        restaurants = controller.fetchedObjects as! [Restaurant]
+    }// after the controller completes the change, it call didChange. It will tell the table view that we've completed the update and it will animate the change correspondingly.
+    func controllerDidChangeContent(controller: NSFetchedResultsController) {
+        tableView.endUpdates()
+    }
    
 
 }
