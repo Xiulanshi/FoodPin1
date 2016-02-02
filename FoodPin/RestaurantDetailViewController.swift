@@ -105,6 +105,15 @@ class RestaurantDetailViewController: UIViewController, UITableViewDataSource, U
             if let rating = reviewViewController.rating {
                 restaurant.rating = rating  //this store the rating
                 ratingButton.setImage(UIImage(named: rating), forState: UIControlState.Normal)
+                
+                if let managedObjectContext = (UIApplication.sharedApplication().delegate as? AppDelegate)?.managedObjectContext {
+                    
+                    do {
+                        try managedObjectContext.save()
+                    } catch {
+                        print(error)
+                    }
+                }
             }
         }
         
