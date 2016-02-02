@@ -134,12 +134,12 @@ class AddRestaurantController: UITableViewController, UIImagePickerControllerDel
         // Yes button clicked
         if sender == yesButton {
             isVisited = true
-            yesButton.backgroundColor = UIColor.redColor()
+            yesButton.backgroundColor = UIColor(red: 235.0/255.0, green: 73.0/255.0, blue: 27.0/255.0, alpha: 1.0)
             noButton.backgroundColor = UIColor.grayColor()
         } else if sender == noButton {
             isVisited = false
             yesButton.backgroundColor = UIColor.grayColor()
-            noButton.backgroundColor = UIColor.redColor()
+            noButton.backgroundColor = UIColor(red: 235.0/255.0, green: 73.0/255.0, blue: 27.0/255.0, alpha: 1.0)
         }
     }
 
