@@ -613,11 +613,11 @@
             </objects>
             <point key="canvasLocation" x="3118" y="322"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Favorites-->
         <scene sceneID="BKV-e9-YBz">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rxh-SP-t82" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="favorites" id="CuD-cR-Gfv"/>
+                    <tabBarItem key="tabBarItem" title="Favorites" image="favorite" id="CuD-cR-Gfv"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="O0J-lr-6fa">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -661,11 +661,11 @@
             </objects>
             <point key="canvasLocation" x="971" y="1027"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Discover-->
         <scene sceneID="EPV-Rl-8fq">
             <objects>
                 <navigationController id="5yG-di-lD4" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="recents" id="nam-ZP-jFh"/>
+                    <tabBarItem key="tabBarItem" title="Discover" image="discover" id="nam-ZP-jFh"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="IHE-UC-D3r">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -707,11 +707,11 @@
             </objects>
             <point key="canvasLocation" x="971" y="1686"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--About-->
         <scene sceneID="CDM-7c-n0h">
             <objects>
                 <navigationController id="eiG-qJ-zcC" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="more" id="iK5-h8-s2X"/>
+                    <tabBarItem key="tabBarItem" title="About" image="about" id="iK5-h8-s2X"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ab2-Gh-tGa">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -846,9 +846,12 @@
         </scene>
     </scenes>
     <resources>
+        <image name="about" width="25" height="25"/>
         <image name="barrafina" width="640" height="640"/>
         <image name="close" width="84" height="84"/>
+        <image name="discover" width="25" height="25"/>
         <image name="dislike" width="84" height="84"/>
+        <image name="favorite" width="25" height="25"/>
         <image name="good" width="256" height="256"/>
         <image name="great" width="256" height="256"/>
         <image name="map" width="48" height="48"/>
