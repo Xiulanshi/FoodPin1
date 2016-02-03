@@ -46,35 +46,24 @@ class WalkthroughContentViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func close(sender: AnyObject) {
-        let defaults = NSUserDefaults.standardUserDefaults()
-        defaults.setBool(true, forKey: "hasViewedWalkthrough")
-        
-        dismissViewControllerAnimated(true, completion: nil)
-    }
+    @IBAction func nextButtonTapped(sender: UIButton) {
     
-//    nextButtonTapped(sender: UIButton) {
-//    
-//    switch index {
-//    case 0...1:
-//    let pageViewController = parentViewController as! WalkthroughPageViewController
-//    
-//    pageViewController.forward(index)
-//    
-//    case 2:
-//    dismissViewControllerAnimated(true, completion: nil)
-//    
-//    default: break
-//    
-//    }
-//    }
+    switch index {
+    case 0...1:
+    let pageViewController = parentViewController as! WalkthroughPageViewController
+    
+    pageViewController.forward(index)
+    
+    case 2:
+    let defaults = NSUserDefaults.standardUserDefaults()
+    defaults.setBool(true, forKey: "hasViewedWalkthrough")
 
-//    @IBAction func close(sender: AnyObject) {
-//        let defaults = NSUserDefaults.standardUserDefaults()
-//        defaults.setBool(true, forKey: "hasViewedWalkthrough")
-//        
-//        dismissViewControllerAnimated(true, completion: nil)
-//    }
+    dismissViewControllerAnimated(true, completion: nil)
+    
+    default: break
+    
+    }
+    }
 
     /*
     // MARK: - Navigation
