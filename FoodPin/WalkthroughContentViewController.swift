@@ -15,6 +15,7 @@ class WalkthroughContentViewController: UIViewController {
     @IBOutlet var contentImageView: UIImageView!
     
     @IBOutlet var pageControl: UIPageControl!
+    @IBOutlet var forwardButton: UIButton!
     
     var index = 0
     var heading = ""
@@ -31,11 +32,34 @@ class WalkthroughContentViewController: UIViewController {
         contentImageView.image = UIImage(named: imageFile)
         
         pageControl.currentPage = index
+        
+        
+        if case 0...1 = index {
+            forwardButton.setTitle("NEXT", forState: UIControlState.Normal)
+        } else if case 2 = index {
+            forwardButton.setTitle("DONE", forState: UIControlState.Normal)
+        }
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func nextButtonTapped(sender: UIButton) {
+        
+        switch index {
+        case 0...1:
+            let pageViewController = parentViewController as! WalkthroughPageViewController
+            
+            pageViewController.forward(index)
+            
+        case 2:
+            dismissViewControllerAnimated(true, completion: nil)
+            
+        default: break
+            
+        }
     }
     
 

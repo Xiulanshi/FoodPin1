@@ -657,6 +657,13 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mIs-UB-8lN">
+                                <rect key="frame" x="30" y="72" width="540" height="418"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="418" id="Nls-ye-25T"/>
+                                    <constraint firstAttribute="width" constant="540" id="aBh-9I-T7I"/>
+                                </constraints>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pin your favorite restaurants and create your own food guide" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l8w-vA-hXN">
                                 <rect key="frame" x="159" y="498" width="282" height="64"/>
                                 <constraints>
@@ -670,22 +677,26 @@
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="1lw-Fc-DSR">
                                 <rect key="frame" x="281" y="555" width="39" height="37"/>
                             </pageControl>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mIs-UB-8lN">
-                                <rect key="frame" x="30" y="72" width="540" height="418"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="418" id="Nls-ye-25T"/>
-                                    <constraint firstAttribute="width" constant="540" id="aBh-9I-T7I"/>
-                                </constraints>
-                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pe2-p9-Z3h">
+                                <rect key="frame" x="541" y="564" width="39" height="30"/>
+                                <state key="normal" title="NEXT">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="nextButtonTapped:" destination="ZJv-UW-jl1" eventType="touchUpInside" id="NVX-ld-lta"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="6oo-yi-yA8" firstAttribute="top" secondItem="pe2-p9-Z3h" secondAttribute="bottom" constant="6" id="2et-zM-UCO"/>
                             <constraint firstItem="l8w-vA-hXN" firstAttribute="top" secondItem="mIs-UB-8lN" secondAttribute="bottom" constant="8" id="64p-rc-qkK"/>
                             <constraint firstItem="l8w-vA-hXN" firstAttribute="centerX" secondItem="s5n-rW-blU" secondAttribute="centerX" id="7q0-eg-2G7"/>
                             <constraint firstItem="mIs-UB-8lN" firstAttribute="top" secondItem="3Lq-5S-Lln" secondAttribute="bottom" constant="8" id="Alo-78-nJ0"/>
                             <constraint firstItem="6oo-yi-yA8" firstAttribute="top" secondItem="1lw-Fc-DSR" secondAttribute="bottom" constant="8" id="NOD-Gb-S7a"/>
                             <constraint firstItem="3Lq-5S-Lln" firstAttribute="top" secondItem="dUC-fj-bm9" secondAttribute="bottom" constant="8" id="Ywr-4Q-ol6"/>
                             <constraint firstItem="3Lq-5S-Lln" firstAttribute="centerX" secondItem="s5n-rW-blU" secondAttribute="centerX" id="ahZ-c6-lFH"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="pe2-p9-Z3h" secondAttribute="trailing" id="mTA-UY-GIy"/>
                             <constraint firstItem="1lw-Fc-DSR" firstAttribute="centerX" secondItem="s5n-rW-blU" secondAttribute="centerX" id="omA-Rq-5cG"/>
                             <constraint firstItem="mIs-UB-8lN" firstAttribute="centerX" secondItem="s5n-rW-blU" secondAttribute="centerX" id="vDV-3F-BzC"/>
                         </constraints>
@@ -693,6 +704,7 @@
                     <connections>
                         <outlet property="contentImageView" destination="mIs-UB-8lN" id="NxR-eq-j7j"/>
                         <outlet property="contentLabel" destination="l8w-vA-hXN" id="inY-Qd-5Gb"/>
+                        <outlet property="forwardButton" destination="pe2-p9-Z3h" id="Uls-OX-kZT"/>
                         <outlet property="headingLabel" destination="3Lq-5S-Lln" id="OVO-vA-u8n"/>
                         <outlet property="pageControl" destination="1lw-Fc-DSR" id="ezD-zR-Qix"/>
                     </connections>
