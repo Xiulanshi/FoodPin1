@@ -88,7 +88,7 @@
                     <navigationItem key="navigationItem" title="Food Pin" id="4At-se-4uA">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="TKW-qJ-xSa">
                             <connections>
-                                <segue destination="Owr-s3-dJ3" kind="presentation" identifier="addRestaurant" id="E7h-xt-5cH"/>
+                                <segue destination="Brp-rY-n8B" kind="presentation" identifier="addRestaurant" id="E7h-xt-5cH"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -325,7 +325,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qGK-md-5YP" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="wOc-FP-LTk" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1622" y="-404"/>
+            <point key="canvasLocation" x="2434" y="-404"/>
         </scene>
         <!--Restaurant Detail View Controller-->
         <scene sceneID="x1x-oq-X1U">
@@ -717,6 +717,7 @@
         <scene sceneID="WgY-mT-NIF">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Owr-s3-dJ3" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" systemItem="favorites" id="fZW-nH-V8r"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="TVN-HX-Q6b">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -729,7 +730,24 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GRj-NE-nPd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="862" y="-404"/>
+            <point key="canvasLocation" x="1674" y="-404"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="WWJ-Zr-5OS">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="Brp-rY-n8B" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="ch3-TE-yx7">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="Owr-s3-dJ3" kind="relationship" relationship="viewControllers" id="h0k-Kf-wSW"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wIA-0V-rjt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1043" y="-531"/>
         </scene>
     </scenes>
     <resources>
