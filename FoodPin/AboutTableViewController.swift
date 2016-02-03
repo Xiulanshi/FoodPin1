@@ -70,6 +70,8 @@ class AboutTableViewController: UITableViewController {
                 if let url = NSURL(string: "http://www.apple.com/itunes.charts/paid-apps/") {
                     UIApplication.sharedApplication().openURL(url)
                 }
+            } else if indexPath.row == 1 {
+                performSegueWithIdentifier("showWebView", sender: self)
             }
             
         default:

@@ -42,10 +42,46 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="About" id="Yhk-XJ-od1"/>
+                    <connections>
+                        <segue destination="f87-0h-6Vb" kind="show" identifier="showWebView" id="Dxt-rK-5V2"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dlG-kn-Uhe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="971" y="1686"/>
+        </scene>
+        <!--Web View Controller-->
+        <scene sceneID="zWz-d2-NFp">
+            <objects>
+                <viewController id="f87-0h-6Vb" customClass="WebViewController" customModule="FoodPin" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="nYV-PG-BHk"/>
+                        <viewControllerLayoutGuide type="bottom" id="OCB-cY-v9W"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="RX3-PA-vNg">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qy7-tR-CdI">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="qy7-tR-CdI" secondAttribute="bottom" id="Bhk-2U-WHc"/>
+                            <constraint firstItem="qy7-tR-CdI" firstAttribute="leading" secondItem="RX3-PA-vNg" secondAttribute="leading" id="F1L-hD-ULy"/>
+                            <constraint firstAttribute="trailing" secondItem="qy7-tR-CdI" secondAttribute="trailing" id="pO3-IZ-VLt"/>
+                            <constraint firstItem="qy7-tR-CdI" firstAttribute="top" secondItem="RX3-PA-vNg" secondAttribute="top" id="wiG-CJ-nvB"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="qy7-tR-CdI" id="pib-bm-f2c"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gz7-HN-ry6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1600" y="1686"/>
         </scene>
         <!--About-->
         <scene sceneID="CDM-7c-n0h">
