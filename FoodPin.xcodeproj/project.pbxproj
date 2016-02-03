@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		6D750DC11C61745300271835 /* WalkthroughContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D750DC01C61745300271835 /* WalkthroughContentViewController.swift */; };
 		6D750DC31C61802400271835 /* WalkthroughPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D750DC21C61802400271835 /* WalkthroughPageViewController.swift */; };
+		6DFDB99E1C62843E00452F1C /* about.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6DFDB99C1C62843E00452F1C /* about.storyboard */; };
+		6DFDB9A11C62846500452F1C /* discover.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6DFDB99F1C62846500452F1C /* discover.storyboard */; };
 		D9EDB1D91C5416A2009EC195 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9EDB1D81C5416A2009EC195 /* AppDelegate.swift */; };
 		D9EDB1DE1C5416A2009EC195 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9EDB1DC1C5416A2009EC195 /* Main.storyboard */; };
 		D9EDB1E01C5416A2009EC195 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9EDB1DF1C5416A2009EC195 /* Assets.xcassets */; };
@@ -28,6 +30,8 @@
 /* Begin PBXFileReference section */
 		6D750DC01C61745300271835 /* WalkthroughContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalkthroughContentViewController.swift; sourceTree = "<group>"; };
 		6D750DC21C61802400271835 /* WalkthroughPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalkthroughPageViewController.swift; sourceTree = "<group>"; };
+		6DFDB99D1C62843E00452F1C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/about.storyboard; sourceTree = "<group>"; };
+		6DFDB9A01C62846500452F1C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/discover.storyboard; sourceTree = "<group>"; };
 		D9EDB1D51C5416A1009EC195 /* FoodPin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodPin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9EDB1D81C5416A2009EC195 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D9EDB1DD1C5416A2009EC195 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -90,6 +94,8 @@
 				6D750DC01C61745300271835 /* WalkthroughContentViewController.swift */,
 				6D750DC21C61802400271835 /* WalkthroughPageViewController.swift */,
 				D9EDB1DC1C5416A2009EC195 /* Main.storyboard */,
+				6DFDB99F1C62846500452F1C /* discover.storyboard */,
+				6DFDB99C1C62843E00452F1C /* about.storyboard */,
 				D9EDB1DF1C5416A2009EC195 /* Assets.xcassets */,
 				D9EDB1E11C5416A2009EC195 /* LaunchScreen.storyboard */,
 				D9EDB1E41C5416A2009EC195 /* Info.plist */,
@@ -163,6 +169,8 @@
 			files = (
 				D9EDB1E31C5416A2009EC195 /* LaunchScreen.storyboard in Resources */,
 				D9EDB1E01C5416A2009EC195 /* Assets.xcassets in Resources */,
+				6DFDB9A11C62846500452F1C /* discover.storyboard in Resources */,
+				6DFDB99E1C62843E00452F1C /* about.storyboard in Resources */,
 				D9EDB1DE1C5416A2009EC195 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -192,6 +200,22 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		6DFDB99C1C62843E00452F1C /* about.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6DFDB99D1C62843E00452F1C /* Base */,
+			);
+			name = about.storyboard;
+			sourceTree = "<group>";
+		};
+		6DFDB99F1C62846500452F1C /* discover.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6DFDB9A01C62846500452F1C /* Base */,
+			);
+			name = discover.storyboard;
+			sourceTree = "<group>";
+		};
 		D9EDB1DC1C5416A2009EC195 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
