@@ -683,6 +683,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="close:" destination="ZJv-UW-jl1" eventType="touchUpInside" id="snq-yE-3UD"/>
                                     <action selector="nextButtonTapped:" destination="ZJv-UW-jl1" eventType="touchUpInside" id="NVX-ld-lta"/>
                                 </connections>
                             </button>
